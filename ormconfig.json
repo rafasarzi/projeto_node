@@ -3,8 +3,8 @@
   "host": "localhost",
   "port": 5432,
   "username": "postgres",
-  "password": "postgres",
-  "database": "gostack_gobarber",
+  "password": "docker",
+  "database": "postgres",
   "migrations": [
     "./src/database/migrations/*.ts"
   ],
