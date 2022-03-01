@@ -1,5 +1,5 @@
 Arguments: 
-  /home/rafa/.nvm/versions/node/v12.22.10/bin/node /home/rafa/.nvm/versions/node/v12.22.10/bin/yarn add uuid4
+  /home/rafa/.nvm/versions/node/v12.22.10/bin/node /home/rafa/.nvm/versions/node/v12.22.10/bin/yarn add reflect-metadate
 
 PATH: 
   /home/rafa/.nvm/versions/node/v12.22.10/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
@@ -14,8 +14,17 @@ Platform:
   linux x64
 
 Trace: 
-  Error: getaddrinfo EAI_AGAIN registry.yarnpkg.com
-      at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:66:26)
+  Error: https://registry.yarnpkg.com/reflect-metadate: Not found
+      at Request.params.callback [as _callback] (/home/rafa/.nvm/versions/node/v12.22.10/lib/node_modules/yarn/lib/cli.js:67029:18)
+      at Request.self.callback (/home/rafa/.nvm/versions/node/v12.22.10/lib/node_modules/yarn/lib/cli.js:140883:22)
+      at Request.emit (events.js:314:20)
+      at Request.<anonymous> (/home/rafa/.nvm/versions/node/v12.22.10/lib/node_modules/yarn/lib/cli.js:141855:10)
+      at Request.emit (events.js:314:20)
+      at IncomingMessage.<anonymous> (/home/rafa/.nvm/versions/node/v12.22.10/lib/node_modules/yarn/lib/cli.js:141777:12)
+      at Object.onceWrapper (events.js:420:28)
+      at IncomingMessage.emit (events.js:326:22)
+      at endReadableNT (_stream_readable.js:1241:12)
+      at processTicksAndRejections (internal/process/task_queues.js:84:21)
 
 npm manifest: 
   {
@@ -35,6 +44,7 @@ npm manifest:
       "pg": "^8.7.3",
       "reflect-metadata": "^0.1.13",
       "typeorm": "^0.2.43",
+      "uuid4": "^2.0.2",
       "uuidv4": "^6.2.12"
     },
     "devDependencies": {
@@ -2202,6 +2212,11 @@ Lockfile:
     version "1.0.1"
     resolved "https://registry.yarnpkg.com/utils-merge/-/utils-merge-1.0.1.tgz#9f95710f50a267947b2ccc124741c1028427e713"
     integrity sha1-n5VxD1CiZ5R7LMwSR0HBAoQn5xM=
+  
+  uuid4@^2.0.2:
+    version "2.0.2"
+    resolved "https://registry.yarnpkg.com/uuid4/-/uuid4-2.0.2.tgz#d33169f4a8fe84b217f50a0f28f971cd9ff56216"
+    integrity sha512-TzsQS8sN1B2m9WojyNp0X/3JL8J2RScnrAJnooNPL6lq3lA02/XdoWysyUgI6rAif0DzkkWk51N6OggujPy2RA==
   
   uuid@8.3.2, uuid@^8.3.2:
     version "8.3.2"
