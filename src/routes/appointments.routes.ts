@@ -2,6 +2,7 @@ import { request, response, Router } from "express";
 import { getCustomRepository } from "typeorm";
 import { parseISO } from "date-fns";
 
+
 import AppointmentRepository from "../repositories/ApointmentsRepository";
 import CreateAppointmentService from "../services/CreateAppointmentService";
 
@@ -24,13 +25,16 @@ appointmentsRouter.post('/', async (request, response) =>{
 
     const appointment = await CreateAppointment.execute({
       date: parsedDate,
-      provider
+      provider,
     });
 
     return response.json(appointment);
-  }catch (err) {
-    return response.status(400).json({ message: err });
-    }
+  }catch (err) {let errorMessage = 'falha';
+  if (err instanceof Error) {
+    errorMessage = err.message;
+  }
+  return response.status(400).json({ error: errorMessage});
+}
 });
 
 export default appointmentsRouter;

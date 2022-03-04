@@ -6,7 +6,7 @@ export default class AlterProviderFieldProviderId1645722963943 implements Migrat
       await queryRunner.dropColumn('appointments', 'provider' );
       await queryRunner.addColumn('appointments', new TableColumn({
         name: 'provider_id',
-        type:'varchar',
+        type:'uuid',
         isNullable: true,
       }),
     );

@@ -14,8 +14,8 @@ class Appointment {
   @JoinColumn({ name: 'provider_id' })
   provider: User;
 
-  @Column({ type: 'timestamp', nullable: true })
-  timestamp: Date;
+  @Column('timestamp')
+  date: Date
 
 }
 

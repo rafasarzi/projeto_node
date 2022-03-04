@@ -9,13 +9,18 @@ usersRouter.post('/', async (request, response) =>{
     const createUser = new CreateUserService();
 
     const user = await createUser.execute({
-      name, email, password,
+      name,
+      email,
+      password
     });
 
     return response.json(user);
 
-  } catch (err) {
-    return response.status(400).json({ message: err });
+  } catch (err) {let errorMessage = 'falha';
+    if (err instanceof Error) {
+      errorMessage = err.message;
+    }
+    return response.status(400).json({ error: errorMessage});
   }
 });
 
