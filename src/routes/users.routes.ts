@@ -14,6 +14,8 @@ usersRouter.post('/', async (request, response) =>{
       password
     });
 
+    delete user.password;
+
     return response.json(user);
 
   } catch (err) {let errorMessage = 'falha';

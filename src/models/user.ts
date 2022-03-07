@@ -19,6 +19,7 @@ class User {
 
   @UpdateDateColumn()
   updated_at: Date;
+  static password: any;
 
 }
 export default User;
