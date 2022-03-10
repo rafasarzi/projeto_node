@@ -30,33 +30,24 @@ usersRouter.post('/', async (request, response) =>{
 
     return response.json(user);
 
-  } catch (err) {let errorMessage = 'falha';
-    if (err instanceof Error) {
-      errorMessage = err.message;
-    }
-    return response.status(400).json({ error: errorMessage});
+  } catch (err) {
+    return response.status(err.statusCode).json({ error: err.message});
   }
 });
 
 usersRouter.patch('/avatar', ensureAuthenticated, upload.single('avatar'),
  async (request, response) => {
-  try{
-    const updateUserAvatar = new UpdateUserAvatarService();
+  const updateUserAvatar = new UpdateUserAvatarService();
 
-   const user = await updateUserAvatar.execute({
+  const user = await updateUserAvatar.execute({
      user_id: request.user.id,
      avatarFilename: request.file.filename,
-   })
+  })
 
-   delete user.password;
+  delete user.password;
 
-    return response.json(user)
-  }catch (err) {let errorMessage = 'falha';
-  if (err instanceof Error) {
-    errorMessage = err.message;
-  }
-  return response.status(400).json({ error: errorMessage});
-}
+  return response.json(user)
+
 });
 
 export default usersRouter;

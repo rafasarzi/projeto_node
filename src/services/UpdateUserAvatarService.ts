@@ -2,8 +2,10 @@ import { getRepository } from 'typeorm';
 import path from 'path';
 import fs from 'fs';
 import uploadConfig from '../config/upload';
+
+import AppError from '../errors/AppError';
+
 import User from '../models/user';
-import { fromString } from 'uuidv4';
 
 interface Request {
   user_id : string;
@@ -17,7 +19,7 @@ class UpdateUserAvatarService {
     const user = await userRepository.findOne(user_id);
 
     if(!user){
-      throw new Error('Only authenticated users can changes avatar')
+      throw new AppError('Only authenticated users can changes avatar',401)
     }
     if(user.avatar){
       const userAvatarFilePath = path.join(uploadConfig.directory, user.avatar);

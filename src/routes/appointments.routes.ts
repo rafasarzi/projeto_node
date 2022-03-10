@@ -22,7 +22,7 @@ appointmentsRouter.get('/', async(request, response) => {
 });
 
 appointmentsRouter.post('/', async (request, response) =>{
-  try{
+
     const {  date, provider_id } = request.body;
 
     const parsedDate = parseISO(date);
@@ -36,12 +36,6 @@ appointmentsRouter.post('/', async (request, response) =>{
 
     return response.json(appointment);
 
-  } catch (err) {let errorMessage = 'falha';
-  if (err instanceof Error) {
-    errorMessage = err.message;
-  }
-  return response.status(400).json({ error: errorMessage});
-}
 });
 
 export default appointmentsRouter;
